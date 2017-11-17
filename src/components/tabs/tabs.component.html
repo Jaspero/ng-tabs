@@ -1,0 +1,12 @@
+<div class="tab-nav">
+    <div class="col"
+         *ngFor="let tab of tabs"
+         [class.active]="tab.active"
+         [ngStyle]="{flex: tabs.length}"
+         (click)="selectTab(tab, i)">
+        <jaspero-variable-content [isTemplate]="tab.isTemplate" [item]="tab.title"></jaspero-variable-content>
+    </div>
+</div>
+<div class="tab-content">
+    <ng-content></ng-content>
+</div>

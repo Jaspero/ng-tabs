@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tab-nav {
+  display: flex;
+  position: relative;
+  background: #fff;
+  width: 100%;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none
+}
+
+.col {
+  text-align: center;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.col.disabled {
+  cursor: default;
+  color: #d6d6d6;
+}
+
+.col.active {
+  color: #ec4a1d;
+  border-bottom: 1px solid #ec4a1d;
+}
+
+.tab-content {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}

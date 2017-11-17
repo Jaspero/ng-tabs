@@ -1,0 +1,28 @@
+{
+  "name": "@jaspero/ng-tabs",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaspero/ng-tabs"
+  },
+  "author": {
+    "name": "Jaspero co.",
+    "email": "info@jaspero.co"
+  },
+  "keywords": [
+    "angular",
+    "tabs"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaspero/ng-tabs/issues"
+  },
+  "main": "ng-tabs.umd.js",
+  "module": "ng-tabs.js",
+  "jsnext:main": "ng-tabs.js",
+  "typings": "ng-tabs.d.ts",
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0"
+  }
+}
