@@ -1,5 +1,4 @@
-import {Input, Component, OnInit, TemplateRef, ViewEncapsulation, HostBinding, ChangeDetectionStrategy} from '@angular/core';
-import {TabsComponent} from '../tabs/tabs.component';
+import {Input, Component, TemplateRef, ViewEncapsulation, HostBinding, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'jaspero-tab',
@@ -8,25 +7,14 @@ import {TabsComponent} from '../tabs/tabs.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class TabComponent implements OnInit {
+export class TabComponent {
 
   @HostBinding('class.active')
   @Input()
   active = false;
 
-  @Input() title: string | TemplateRef<any> = 'Tab';
+  @Input() tabTitle: string | TemplateRef<any> = 'Tab';
   @Input() disabled = false;
 
   isTemplate = false;
-  position: number;
-
-  constructor(
-    private tabsComp: TabsComponent
-  ) {}
-
-  ngOnInit() {
-    this.position = this.tabsComp.tabs.length;
-    this.isTemplate = this.title instanceof TemplateRef;
-    this.tabsComp.addTab(this);
-  }
 }

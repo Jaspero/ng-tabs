@@ -34,9 +34,9 @@ Then create the component in a root component (you can create it anywhere but yo
 You can use any of a following will approaches:
 ```html
 <jaspero-tabs>
-  <jaspero-tab [title]="templateRef">Content 1</jaspero-tab>
-  <jaspero-tab [title]="'<p>example 2</p>'">Content 2</jaspero-tab>
-  <jaspero-tab title="example 3">Content 3</jaspero-tab>
+  <jaspero-tab [tabTitle]="templateRef">Content 1</jaspero-tab>
+  <jaspero-tab [tabTitle]="'<p>example 2</p>'">Content 2</jaspero-tab>
+  <jaspero-tab tabTitle="example 3">Content 3</jaspero-tab>
 </jaspero-tabs>
 <ng-template #templateRef>
   <p>This is an example</p>
@@ -47,13 +47,14 @@ You can use any of a following will approaches:
 Available inputs: 
 
 ```typescript
-title: string | TemplateRef<any> = 'Tab'; //default value is 'Tab'
+tabTitle: string | TemplateRef<any> = 'Tab'; // default value is 'Tab'
+active: boolean // defaults to the first if no tabs are active
+disabled: boolean // default value is false. Prevents tab from being toggled
 ```
-
 
 **Note:**
 
-The `title` input can be a string or a TemplateRef.
+The `tabTitle` input can be a string or a TemplateRef.
 
 ### FAQ
 

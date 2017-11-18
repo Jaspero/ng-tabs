@@ -1,4 +1,13 @@
-import {Component, EventEmitter, Output, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
+import {
+  AfterContentInit,
+  ChangeDetectionStrategy, ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Output,
+  TemplateRef,
+  ViewEncapsulation
+} from '@angular/core';
 import {TabComponent} from '../tab/tab.component';
 
 @Component({
@@ -8,24 +17,46 @@ import {TabComponent} from '../tab/tab.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TabsComponent {
-  @Output() tabSelected = new EventEmitter<string | TemplateRef<any>>();
+export class TabsComponent implements AfterContentInit {
+  constructor(
+    private _cdr: ChangeDetectorRef
+  ) {}
 
-  tabs: TabComponent[] = [];
+  @ContentChildren(TabComponent) tabs: any;
+  @Output() tabSelected = new EventEmitter<{index: number, tab: TabComponent}>();
 
-  selectTab(selectedTab: TabComponent) {
-    this.tabs.forEach( tab => tab.active = false);
-    selectedTab.active = true;
-    this.tabSelected.emit(selectedTab.title);
+  ngAfterContentInit() {
+    this.tabs.changes.subscribe(res => {
+      this.adjustTabs(res);
+    });
+    this.adjustTabs(this.tabs);
   }
 
-  addTab(tab: TabComponent) {
-    const index = this.tabs.findIndex(t => t.title === tab.title);
+  selectTab(tab: TabComponent, index: number) {
 
-    if (index !== -1) {
-      this.tabs[index] = tab;
-    } else {
-      this.tabs.push(tab);
+    if (tab.disabled) {
+      return;
     }
+
+    this.tabs.forEach((tabComponent, tabIndex) => tabComponent.active = tabIndex === index);
+    this.tabSelected.emit({index, tab});
+  }
+
+  adjustTabs(entry) {
+    let hasActive = false;
+
+    entry.forEach(tab => {
+      if (tab.active) {
+        hasActive = true;
+      }
+
+      tab.isTemplate = tab.tabTitle instanceof TemplateRef;
+    });
+
+    if (!hasActive) {
+      entry.first.active = true;
+    }
+
+    this._cdr.markForCheck();
   }
 }

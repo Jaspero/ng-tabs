@@ -6,20 +6,20 @@ import {VariableContentComponent} from './components/variable-content/variable-c
 
 export * from './components/tabs/tabs.component';
 export * from './components/tab/tab.component';
+export * from './components/variable-content/variable-content.component';
 
 @NgModule({
   imports: [
-	CommonModule
+    CommonModule
   ],
   declarations: [
-	TabsComponent,
-	TabComponent,
-	VariableContentComponent
+    TabsComponent,
+    TabComponent,
+    VariableContentComponent
   ],
   exports: [
-	TabsComponent,
-	TabComponent,
+    TabsComponent,
+    TabComponent,
   ]
 })
-export class JasperoTabsModule {
-}
+export class JasperoTabsModule {}
