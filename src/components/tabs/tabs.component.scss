@@ -24,7 +24,7 @@ jaspero-tabs {
 
     &.disabled {
       cursor: default;
-      color: #d6d6d6;
+      opacity: 0.5;
     }
 
     &.active {
