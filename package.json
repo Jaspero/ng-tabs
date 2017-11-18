@@ -1,6 +1,6 @@
 {
   "name": "@jaspero/ng-tabs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An easy to use tabs library for Angular",
   "scripts": {
     "build": "gulp build",

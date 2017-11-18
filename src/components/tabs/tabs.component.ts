@@ -14,18 +14,18 @@ export class TabsComponent {
   tabs: TabComponent[] = [];
 
   selectTab(selectedTab: TabComponent) {
-	this.tabs.forEach( tab => tab.active = false);
-	selectedTab.active = true;
-	this.tabSelected.emit(selectedTab.title);
+    this.tabs.forEach( tab => tab.active = false);
+    selectedTab.active = true;
+    this.tabSelected.emit(selectedTab.title);
   }
 
   addTab(tab: TabComponent) {
-	const index = this.tabs.findIndex(t => t.title === tab.title);
+    const index = this.tabs.findIndex(t => t.title === tab.title);
 
-	if (index !== -1) {
-	  this.tabs[index] = tab;
-	} else {
-	  this.tabs.push(tab);
-	}
+    if (index !== -1) {
+      this.tabs[index] = tab;
+    } else {
+      this.tabs.push(tab);
+    }
   }
 }

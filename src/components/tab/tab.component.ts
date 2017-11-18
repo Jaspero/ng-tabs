@@ -21,12 +21,12 @@ export class TabComponent implements OnInit {
   position: number;
 
   constructor(
-	private tabsComp: TabsComponent
+    private tabsComp: TabsComponent
   ) {}
 
   ngOnInit() {
-	this.position = this.tabsComp.tabs.length;
-	this.isTemplate = this.title instanceof TemplateRef;
-	this.tabsComp.addTab(this);
+    this.position = this.tabsComp.tabs.length;
+    this.isTemplate = this.title instanceof TemplateRef;
+    this.tabsComp.addTab(this);
   }
 }
