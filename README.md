@@ -4,7 +4,7 @@
 # NG Tabs
 An easy tabs implementation for Angular.
 
-A demo can be found [here](https://jaspero.co/resources/projects/ng-tabs)
+A demo can be found [here](https://stackblitz.com/edit/jaspero-ng-tabs?file=app%2Fexample.component.html)
 
 ## Installation
 
